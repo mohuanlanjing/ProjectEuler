@@ -20,3 +20,23 @@ def is_prime(num):
             return False
         i += 1
     return True
+
+def plsave_time(plist, num):
+    for i in plist:
+        if num%i == 0:
+            return False
+    return True
+
+# return the first num prime list
+def primelist(num):
+    plist = []
+    i = 2
+    while True:
+        if not plsave_time(plist, i):
+            i += 1
+            continue
+        if is_prime(i):
+            plist.append(i)
+        if len(plist) == num:
+            return plist
+        i += 1
