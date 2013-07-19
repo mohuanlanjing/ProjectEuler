@@ -2,14 +2,14 @@
 """
 What is the value of the first triangle number to have over five hundred divisors?
 """
-from MyAlg import primelist,is_prime
+from MyAlg import primelist,is_prime,big_prime
 
 # get the numst triangle number
 def get_triangle(num):
     return sum(range(num+1))
 
-def short_division(num):
-    if is_prime(num):
+def short_division(num, bp):
+    if bp[num]: 
         return [1]
     k = 1
     plist = primelist(k)
@@ -28,7 +28,7 @@ def short_division(num):
             plist = primelist(k)
         num = num/plist[i]
         sdlist.append(plist[i])
-        if is_prime(num):
+        if bp[num]:
             sdlist.append(num)
             break
         i = 0
@@ -37,9 +37,10 @@ def short_division(num):
 if __name__ == '__main__':
     i = 2
     tn = 1
+    bp = big_prime()
     while True:
         num = get_triangle(i)
-        sdlist = short_division(num)
+        sdlist = short_division(num, bp)
         l = set(sdlist)
         for j in l:
             tn *= sdlist.count(j)+1
