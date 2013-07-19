@@ -2,6 +2,7 @@
 """
 What is the value of the first triangle number to have over five hundred divisors?
 """
+from datetime import datetime
 from MyAlg import primelist,is_prime,big_prime
 
 # get the numst triangle number
@@ -25,6 +26,7 @@ def short_division(num, bp, plist):
     return sdlist
 
 if __name__ == '__main__':
+    start = datetime.now()
     i = 2
     tn = 1
     bp = big_prime()
@@ -35,11 +37,11 @@ if __name__ == '__main__':
         l = set(sdlist)
         for j in l:
             tn *= sdlist.count(j)+1
-        print tn
         if tn >= 500:
             print num
             break
         tn = 1
         i += 1
-
+    end = datetime.now()
+    print (end-start).total_seconds()
             
