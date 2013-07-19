@@ -54,4 +54,3 @@ def primelist(num):
         count = count + 1
     return pl
 
-print primelist(1000000)
