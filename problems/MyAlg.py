@@ -21,18 +21,12 @@ def is_prime(num):
         i += 1
     return True
 
-def plsave_time(plist, num):
-    for i in plist:
-        if num%i == 0:
-            return False
-    return True
-
 # return the first num prime list
 def primelist(num):
     plist = []
     i = 2
     while True:
-        if not plsave_time(plist, i):
+        if i>2 and i%2 == 0:
             i += 1
             continue
         if is_prime(i):
