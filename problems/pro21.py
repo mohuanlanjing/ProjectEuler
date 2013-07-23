@@ -3,7 +3,7 @@
 Evaluate the sum of all the amicable numbers under 10000.
 """
 
-# get the proper divisor list
+# sum the proper divisor list
 def sum_proper_divisors_list(num, option='sum'):
     proper_divisors_list = [i for i in range(1, int(num/2)) if not num%i]
     return sum(proper_divisors_list)

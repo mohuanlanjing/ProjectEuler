@@ -33,7 +33,7 @@ def big_prime(limit=100000000):
         blist[i*j] = 0
         j = j + 1
     j = 2
-    for i in range(3,max+1,2):
+    for i in xrange(3,max+1,2):
         if blist[i] == 0:
             continue
         if is_prime(i):
@@ -53,4 +53,9 @@ def primelist(num):
             pl.append(count)
         count = count + 1
     return pl
+
+# get the proper divisor list
+def get_proper_divisors_list(num):
+    proper_divisors_list = [i for i in xrange(1, int(num/2)) if not num%i]
+    return proper_divisors_list
 
