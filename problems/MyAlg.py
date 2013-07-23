@@ -1,5 +1,6 @@
 from math import sqrt
 
+
 # check the num is prime number or not
 def is_prime(num):
     if not isinstance(num, int):
@@ -56,6 +57,8 @@ def primelist(num):
 
 # get the proper divisor list
 def get_proper_divisors_list(num):
-    proper_divisors_list = [i for i in xrange(1, int(num/2)) if not num%i]
+    proper_divisors_list = [i for i in xrange(1, int(num/2)+1) if not num%i]
     return proper_divisors_list
+
+get_list = get_proper_divisors_list
 
