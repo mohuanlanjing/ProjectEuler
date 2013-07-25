@@ -22,7 +22,7 @@ def is_prime(num):
         i += 1
     return True
 
-#make a big prime list below limit
+#make a big bollen list below limit to check whether a num is prime
 def big_prime(limit=100000000):
     blist = [1] * (limit+1)
     blist[0] = 0
