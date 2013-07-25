@@ -4,23 +4,25 @@ Find the value of d < 1000 for which 1/d contains the longest recurring cycle in
 """
 
 def long_division(num):
-    borrow = len(str(num))
-    import pdb
-    pdb.set_trace()
-    quo_list = []
     mod_list = []
-    mod = 1
+    quo_list = []
+    dividend = 1
+    count = 0
     while True:
-        temp = mod * pow(10, borrow)
-        mod = temp % num
+        while dividend < num :
+            mod_list.append(dividend)
+            dividend *= 10
+            count += 1
+        quo_list += (count - 1)*[0]
+        mod = dividend % num
         if mod == 0:
             return []
-        quo = temp / num
-        if mod_list and quo_list and mod == mod_list[0] and quo == quo_list[0]:
-            return quo_list
-        quo_list.append(quo)
+        quo = dividend / num
+        dividend = mod
         mod_list.append(mod)
+        quo_list.append(quo)
+        if mod in mod_list[:-1]:
+            return quo_list[mod_list.index(mod):]
+        count = 0 
 
-print long_division(6)
-#print max([(long_division(i),i) for i in xrange(1, 1000)])
-
+print max([(len(long_division(i)),i) for i in xrange(1,1000)])
